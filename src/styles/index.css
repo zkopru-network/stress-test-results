@@ -1,0 +1,120 @@
+body {
+  background: #96B0B7;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+section {
+  background: white;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-sizing: border-box;
+  min-width: 100%;
+}
+
+section:last-child {
+  grid-column: 1 / span 2;
+  text-align: center;
+}
+
+section#overview {
+  grid-column: 1 / span 2;
+}
+
+section#overview ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  list-style: none;
+}
+
+section#overview ul li {
+  text-align: center;
+  font-size: 30px;
+}
+
+section#overview ul li p {
+  font-size: 16px;
+}
+
+@media (max-width: 900px) {
+  .container {
+    display: block;
+  }
+
+  section {
+    margin-bottom: 10px;
+  }
+
+  section#overview ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: unset;
+  }
+}
+
+h2 {
+  padding-bottom: .3em;
+  font-size: 1.5em;
+  border-bottom: 1px solid  hsla(210,18%,87%,1);
+}
+
+h3 {
+  font-size: 1.25em
+}
+
+h4 {
+  font-size: 1em
+}
+
+h5 {
+  font-size: .875em
+}
+
+h6 {
+  font-size: .85em;
+  color: #57606a
+}
+
+table {
+  display: block;
+  width: 100%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-width: 100%;
+  overflow: auto;
+}
+
+table th {
+  font-weight: 600;
+}
+
+table th,
+table td {
+  padding: 6px 13px;
+  border: 1px solid #134F5C;
+}
+
+table tr {
+  background-color: #ffffff;
+  border-top: 1px solid hsla(210,18%,87%,1);;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+table img {
+  background-color: transparent;
+}
