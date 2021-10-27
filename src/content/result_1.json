@@ -1,0 +1,458 @@
+{
+  "info": {
+    "testnetInfo": {
+      "nodeInfo": "Geth/v1.10.3-stable-991384a7/linux-amd64/go1.16.3",
+      "chainId": 20200406
+    },
+    "operation": {
+      "startTime": 1635320052290,
+      "endTime": 1635324901313,
+      "targetTPS": 0.1
+    },
+    "systemInformation": {
+      "cpu": {
+        "manufacturer": "AMD",
+        "brand": "Ryzen 9 5950X 16-Core Processor",
+        "vendor": "AuthenticAMD",
+        "family": "25",
+        "model": "33",
+        "stepping": "0",
+        "revision": "",
+        "voltage": "",
+        "speed": 3.4,
+        "speedMin": 2.2,
+        "speedMax": 5.08,
+        "governor": "schedutil",
+        "cores": 32,
+        "physicalCores": 16,
+        "processors": 1,
+        "socket": "",
+        "flags": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca fsrm",
+        "virtualization": true,
+        "cache": {
+          "l1d": 32768,
+          "l1i": 32768,
+          "l2": 524288,
+          "l3": 33554432
+        }
+      },
+      "memory": {
+        "total": 67344449536,
+        "free": 27161755648,
+        "used": 40182693888,
+        "active": 22770003968,
+        "available": 44574445568,
+        "buffers": 1916198912,
+        "cached": 15487709184,
+        "slab": 1621024768,
+        "buffcache": 19024932864,
+        "swaptotal": 127998619648,
+        "swapused": 0,
+        "swapfree": 127998619648
+      }
+    },
+    "git": {
+      "stress-test": {
+        "branch": "feat/extra-info",
+        "commit": "126b743f0d51535c7a663fcf32fbcc4aa744e84c"
+      },
+      "zkopru": {
+        "branch": "fix/stress-test",
+        "commit": "595d98513fec3a6944bf72b14e83dbbb675d3392"
+      }
+    }
+  },
+  "configuration": {
+    "layer1": {
+      "chainId": 20200406,
+      "nodeInfo": "Geth/v1.10.3-stable-991384a7/linux-amd64/go1.16.3",
+      "avgBlockGasLimit": 12000000
+    },
+    "zkopruConfig": {
+      "maxBlockSize": "200000",
+      "maxValidationGas": "6000000",
+      "challengePeriod": "30",
+      "minimumStake": "32000000000000000000",
+      "maxUtxoDepth": "48"
+    },
+    "coordinatorConfig": [
+      {
+        "id": 1,
+        "url": "172.22.0.4:8888",
+        "from": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+        "maxBytes": 131072,
+        "priceMultiplier": 48,
+        "maxBid": 20000
+      }
+    ]
+  },
+  "testResult": {
+    "performance": {
+      "firstProposeTime": 1635320389116,
+      "lastProposeTime": 1635324250941,
+      "txCount": {
+        "total": 380,
+        "last24h": 380,
+        "last01h": 363
+      }
+    },
+    "recentProposedBlocks": [
+      {
+        "timestamp": 1635324250941,
+        "proposeNum": 104,
+        "blockHash": "0xdab3990eb64c11cf409f29392f5ae09890f42676e40f4c369497c2261c0c3040",
+        "parentsBlockHash": "0x29848a27028fdc00a0789b4576f8ddb81064451d8a3e3866c8cdb121bae231f5",
+        "txcount": 5,
+        "paidFee": "0x10b2a00671c000",
+        "from": "0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1",
+        "layer1TxHash": "0x758e35aac1212a50b238a5eefb5be65fc1f4d20a23ba4a82b5cda24a89aee437",
+        "layer1BlockNumber": 2587
+      },
+      {
+        "timestamp": 1635324200306,
+        "proposeNum": 103,
+        "blockHash": "0x29848a27028fdc00a0789b4576f8ddb81064451d8a3e3866c8cdb121bae231f5",
+        "parentsBlockHash": "0x5f1a8c31ea530ac6a99982a48d9737359c30a3f151be2a3410e56a6fe12904ca",
+        "txcount": 3,
+        "paidFee": "0x0a04c66a444000",
+        "from": "0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1",
+        "layer1TxHash": "0x9f37b0dd12a7cc2c80a2a5bb7ed1fd24826f6742c11e8fe36198df7b798ba4d8",
+        "layer1BlockNumber": 2568
+      },
+      {
+        "timestamp": 1635324170312,
+        "proposeNum": 102,
+        "blockHash": "0x5f1a8c31ea530ac6a99982a48d9737359c30a3f151be2a3410e56a6fe12904ca",
+        "parentsBlockHash": "0x47674c50ad738ffe42f8f693314a15e0d6ebadc6288fc622238d8313aa784e1f",
+        "txcount": 3,
+        "paidFee": "0x0a04c66a444000",
+        "from": "0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1",
+        "layer1TxHash": "0x62c61ace9d79e6709e05fa48c2af9e48030bde9b1e2fb2cb906f8b9c56dfa981",
+        "layer1BlockNumber": 2555
+      },
+      {
+        "timestamp": 1635324141019,
+        "proposeNum": 101,
+        "blockHash": "0x47674c50ad738ffe42f8f693314a15e0d6ebadc6288fc622238d8313aa784e1f",
+        "parentsBlockHash": "0x936d1fc042da38660429425b368a240d7eec9114c4b790bdd7a17d49107d5e90",
+        "txcount": 6,
+        "paidFee": "0x14098cd4888000",
+        "from": "0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1",
+        "layer1TxHash": "0xaae5a031400ae70d50f03bfa37286b0cfe006dc31df07aaa0a93101cb7983246",
+        "layer1BlockNumber": 2541
+      },
+      {
+        "timestamp": 1635324085043,
+        "proposeNum": 100,
+        "blockHash": "0x936d1fc042da38660429425b368a240d7eec9114c4b790bdd7a17d49107d5e90",
+        "parentsBlockHash": "0x6d03dd23be602246dd1c6be07d9dd17d45ad924afd9bd15040e237393bb0d9c3",
+        "txcount": 5,
+        "paidFee": "0x10b2a00671c000",
+        "from": "0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1",
+        "layer1TxHash": "0x82c5386ba8cdd3a9d057e97beb6833e45d4307f4a31d94353263387fd4dc14e5",
+        "layer1BlockNumber": 2524
+      },
+      {
+        "timestamp": 1635324035318,
+        "proposeNum": 99,
+        "blockHash": "0x6d03dd23be602246dd1c6be07d9dd17d45ad924afd9bd15040e237393bb0d9c3",
+        "parentsBlockHash": "0x75a7463a19b54bd73ab0a68546053cafc538d996325ed2f66356fe38aa03a7e1",
+        "txcount": 6,
+        "paidFee": "0x14098cd4888000",
+        "from": "0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1",
+        "layer1TxHash": "0xaaca259f7b8ef203fb0124d36667812f97d42fc6c23959d71a9e569bd1f309fa",
+        "layer1BlockNumber": 2508
+      },
+      {
+        "timestamp": 1635323972589,
+        "proposeNum": 98,
+        "blockHash": "0x75a7463a19b54bd73ab0a68546053cafc538d996325ed2f66356fe38aa03a7e1",
+        "parentsBlockHash": "0x1f3a02b9ce0995bb612eb71dc2d511548f6289ea1e596599c17a01741b118ec2",
+        "txcount": 5,
+        "paidFee": "0x10b2a00671c000",
+        "from": "0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1",
+        "layer1TxHash": "0x34ad337e490110d5a2bbb512f09908ac391e1c478db7250ea6fca2b8d9c4c547",
+        "layer1BlockNumber": 2480
+      },
+      {
+        "timestamp": 1635323922352,
+        "proposeNum": 97,
+        "blockHash": "0x1f3a02b9ce0995bb612eb71dc2d511548f6289ea1e596599c17a01741b118ec2",
+        "parentsBlockHash": "0xde341ccd6063d4eb00c6b8da6e68c2467d41de1570cfdc3e7cb69aae39803523",
+        "txcount": 5,
+        "paidFee": "0x10b2a00671c000",
+        "from": "0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1",
+        "layer1TxHash": "0x3a543f7455ca9e4a22683a13ca98b019ee0af1303257eef49f02b40695115cad",
+        "layer1BlockNumber": 2464
+      },
+      {
+        "timestamp": 1635323872347,
+        "proposeNum": 96,
+        "blockHash": "0xde341ccd6063d4eb00c6b8da6e68c2467d41de1570cfdc3e7cb69aae39803523",
+        "parentsBlockHash": "0x16c70fbd924c9f1e7af5089cd693be02c3910f59e90dc87265dd11b7c5c15e57",
+        "txcount": 5,
+        "paidFee": "0x10b2a00671c000",
+        "from": "0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1",
+        "layer1TxHash": "0xd869c9290d1abd83b662d6254ac816b52d4d8dbdae35b8fcd2718c3e8553b2b0",
+        "layer1BlockNumber": 2450
+      },
+      {
+        "timestamp": 1635323821383,
+        "proposeNum": 95,
+        "blockHash": "0x16c70fbd924c9f1e7af5089cd693be02c3910f59e90dc87265dd11b7c5c15e57",
+        "parentsBlockHash": "0x7f45a35d4f868c324613118c258d0a01162afd8204866e00ce7e7e7c19eaabb0",
+        "txcount": 6,
+        "paidFee": "0x14098cd4888000",
+        "from": "0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1",
+        "layer1TxHash": "0x8c5e77bd017763c5be36ec8db45544db29be67f66fceee5de1b90c7288c5635b",
+        "layer1BlockNumber": 2432
+      }
+    ],
+    "recentAuctionData": [
+      {
+        "highestBid": {
+          "bidder": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+          "bidAmount": 10000000000001,
+          "startBlock": 2923,
+          "txHash": "0xd8074bec2a77230a127eecaace550e8081e976419b776bdd7811e3109a7de6d2",
+          "blockNumber": 2204
+        },
+        "roundNum": "70",
+        "totalBidCount": 1
+      },
+      {
+        "highestBid": {
+          "bidder": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+          "bidAmount": 10000000000001,
+          "startBlock": 2883,
+          "txHash": "0xd8074bec2a77230a127eecaace550e8081e976419b776bdd7811e3109a7de6d2",
+          "blockNumber": 2204
+        },
+        "roundNum": "69",
+        "totalBidCount": 1
+      },
+      {
+        "highestBid": {
+          "bidder": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+          "bidAmount": 10000000000001,
+          "startBlock": 2843,
+          "txHash": "0xd8074bec2a77230a127eecaace550e8081e976419b776bdd7811e3109a7de6d2",
+          "blockNumber": 2204
+        },
+        "roundNum": "68",
+        "totalBidCount": 1
+      },
+      {
+        "highestBid": {
+          "bidder": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+          "bidAmount": 10000000000001,
+          "startBlock": 2803,
+          "txHash": "0xd8074bec2a77230a127eecaace550e8081e976419b776bdd7811e3109a7de6d2",
+          "blockNumber": 2204
+        },
+        "roundNum": "67",
+        "totalBidCount": 1
+      },
+      {
+        "highestBid": {
+          "bidder": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+          "bidAmount": 10000000000001,
+          "startBlock": 2763,
+          "txHash": "0xd8074bec2a77230a127eecaace550e8081e976419b776bdd7811e3109a7de6d2",
+          "blockNumber": 2204
+        },
+        "roundNum": "66",
+        "totalBidCount": 1
+      },
+      {
+        "highestBid": {
+          "bidder": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+          "bidAmount": 10000000000001,
+          "startBlock": 2723,
+          "txHash": "0xd8074bec2a77230a127eecaace550e8081e976419b776bdd7811e3109a7de6d2",
+          "blockNumber": 2204
+        },
+        "roundNum": "65",
+        "totalBidCount": 1
+      },
+      {
+        "highestBid": {
+          "bidder": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+          "bidAmount": 10000000000001,
+          "startBlock": 2683,
+          "txHash": "0xd8074bec2a77230a127eecaace550e8081e976419b776bdd7811e3109a7de6d2",
+          "blockNumber": 2204
+        },
+        "roundNum": "64",
+        "totalBidCount": 1
+      },
+      {
+        "highestBid": {
+          "bidder": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+          "bidAmount": 10000000000001,
+          "startBlock": 2643,
+          "txHash": "0xd8074bec2a77230a127eecaace550e8081e976419b776bdd7811e3109a7de6d2",
+          "blockNumber": 2204
+        },
+        "roundNum": "63",
+        "totalBidCount": 1
+      },
+      {
+        "highestBid": {
+          "bidder": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+          "bidAmount": 10000000000001,
+          "startBlock": 2603,
+          "txHash": "0xd8074bec2a77230a127eecaace550e8081e976419b776bdd7811e3109a7de6d2",
+          "blockNumber": 2204
+        },
+        "roundNum": "62",
+        "totalBidCount": 1
+      },
+      {
+        "highestBid": {
+          "bidder": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+          "bidAmount": 10000000000001,
+          "startBlock": 2563,
+          "txHash": "0xd8074bec2a77230a127eecaace550e8081e976419b776bdd7811e3109a7de6d2",
+          "blockNumber": 2204
+        },
+        "roundNum": "61",
+        "totalBidCount": 1
+      }
+    ],
+    "coordinatorInfo": {
+      "0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1": {
+        "name": "coordinator_1",
+        "proposedCount": 105,
+        "totalTxCount": 380,
+        "totalPaidFee": "0x04f50781e9c50000",
+        "totalSpentForBid": "0x01f438daa06037"
+      }
+    },
+    "walletInfo": [
+      {
+        "id": 1,
+        "from": "0xd03ea8624C8C5987235048901fB614fDcA89b117",
+        "weiPerByte": "2000000000000",
+        "generatedTx": 154,
+        "totalSpentFee": "144760000000000000"
+      },
+      {
+        "id": 2,
+        "from": "0x95cED938F7991cd0dFcb48F0a06a40FA1aF46EBC",
+        "weiPerByte": "2000000000000",
+        "generatedTx": 139,
+        "totalSpentFee": "130660000000000000"
+      },
+      {
+        "id": 3,
+        "from": "0x3E5e9111Ae8eB78Fe1CC3bb8915d5D461F3Ef9A9",
+        "weiPerByte": "2000000000000",
+        "generatedTx": 91,
+        "totalSpentFee": "85540000000000000"
+      }
+    ],
+    "recentTxData": [
+      {
+        "blockNumber": 2589,
+        "blockHash": "0x6e44151acb78b4c9c4c057a6f3bc4b3e260a8595532b1a1621c76f03a7892fa9",
+        "gasLimit": 12000000,
+        "gasUsed": 74304,
+        "transactions": [
+          "0x74b78c80af49b2996d7af4b46a8373f8480df221d5aa1a20dd444de8bebe8004"
+        ],
+        "zkopruTxCount": 1
+      },
+      {
+        "blockNumber": 2587,
+        "blockHash": "0xb834cc7f54d188e52bc3ff93f6d0658408d924039f1094f7bc02233b0abefb0d",
+        "gasLimit": 12000000,
+        "gasUsed": 279544,
+        "transactions": [
+          "0x758e35aac1212a50b238a5eefb5be65fc1f4d20a23ba4a82b5cda24a89aee437"
+        ],
+        "zkopruTxCount": 1
+      },
+      {
+        "blockNumber": 2586,
+        "blockHash": "0x0ed09d9c79177a91562ade32bc3ecbe617487ca4393b3a5816110cd2583ac3ba",
+        "gasLimit": 12000000,
+        "gasUsed": 74304,
+        "transactions": [
+          "0x043bb7a336a50b395d19b2b5106eddb32a32da44869d5f509eb4ee74eb760c55"
+        ],
+        "zkopruTxCount": 1
+      },
+      {
+        "blockNumber": 2569,
+        "blockHash": "0x2fc03c0d4f07227a311ab3fabaa8e0c687309efb9333cf359c3ebe2492b75cd7",
+        "gasLimit": 12000000,
+        "gasUsed": 74304,
+        "transactions": [
+          "0x25f4dddb2a14fdd7fae72b7a88be28c79b5faf65b87e0f74f5c34a711dfa445b"
+        ],
+        "zkopruTxCount": 1
+      },
+      {
+        "blockNumber": 2568,
+        "blockHash": "0x3e78bf409571a8a1e77b199d25d5af7222b69a49a80ece702721a786816aaf24",
+        "gasLimit": 12000000,
+        "gasUsed": 219453,
+        "transactions": [
+          "0x9f37b0dd12a7cc2c80a2a5bb7ed1fd24826f6742c11e8fe36198df7b798ba4d8"
+        ],
+        "zkopruTxCount": 1
+      },
+      {
+        "blockNumber": 2555,
+        "blockHash": "0xeb80aaa0f41076a180a69e42d7721b8012c8206536b7d02796cfecece4f629c9",
+        "gasLimit": 12000000,
+        "gasUsed": 245890,
+        "transactions": [
+          "0x62c61ace9d79e6709e05fa48c2af9e48030bde9b1e2fb2cb906f8b9c56dfa981"
+        ],
+        "zkopruTxCount": 1
+      },
+      {
+        "blockNumber": 2541,
+        "blockHash": "0x996041a567c51144085a13d73f90de099c24c613c0e0100af5523a6a369a38b8",
+        "gasLimit": 12000000,
+        "gasUsed": 269991,
+        "transactions": [
+          "0xaae5a031400ae70d50f03bfa37286b0cfe006dc31df07aaa0a93101cb7983246"
+        ],
+        "zkopruTxCount": 1
+      },
+      {
+        "blockNumber": 2540,
+        "blockHash": "0xc213d5ecb39619466ab509517a45ac10bdf50be55011ea7c3a94d1d7ff52d52a",
+        "gasLimit": 12000000,
+        "gasUsed": 74304,
+        "transactions": [
+          "0x010874584be0120e265dcd766e1aa4fbc2e529ca8f312befe4e53a1b86b5c324"
+        ],
+        "zkopruTxCount": 1
+      },
+      {
+        "blockNumber": 2525,
+        "blockHash": "0xca3aeef2821ced0013f73451ae63eb9c407245d0a5bacd7c3c8c7ba87de3e1f6",
+        "gasLimit": 12000000,
+        "gasUsed": 74304,
+        "transactions": [
+          "0xd2599c95164b9db3478666901ded9abd00d52c7c559ecb375951a32f547843fa"
+        ],
+        "zkopruTxCount": 1
+      },
+      {
+        "blockNumber": 2524,
+        "blockHash": "0x6a5ef4a28e63955a2213a8ab363f24fdf08ffba64a83c386acbb143e0619b3cf",
+        "gasLimit": 12000000,
+        "gasUsed": 275359,
+        "transactions": [
+          "0x82c5386ba8cdd3a9d057e97beb6833e45d4307f4a31d94353263387fd4dc14e5"
+        ],
+        "zkopruTxCount": 1
+      }
+    ]
+  }
+}

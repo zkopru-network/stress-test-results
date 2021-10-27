@@ -1,19 +1,35 @@
 const fs = require('fs')
 const path = require('path')
 
+// TODO: testresult file should be better uuid
+const resultFiles = fs.readdirSync(`src/content/`)
+const results = resultFiles.map((file) => {
+  const data = JSON.parse(fs.readFileSync(`src/content/${file}`, `utf8`))
+  const id = file.split(`_`)[1].split(`.`)[0]
+  return { id, filePath: `src/content/${file}`, data }
+})
+
 exports.createPages = ({ actions }) => {
   const { createPage } = actions
 
-  const pageData = JSON.parse(
-    fs.readFileSync('./src/content/result_sample.json', { encoding: 'utf-8' }),
-  )
-  const buildResultTemplate = path.resolve(`src/templates/result.tsx`);
-
+  // Create main Page
   createPage({
-    path: `/result`,
-    component: buildResultTemplate,
+    path: `/`,
+    component: path.resolve(`src/templates/main.tsx`),
     context: {
-      ...pageData,
+      results: results.sort((a, b) => (a.id < b.id ? 1 : -1)),
     },
+  })
+
+  // Create results pages
+  results.forEach((result) => {
+    createPage({
+      path: `/result_${result.id}`,
+      component: path.resolve(`src/templates/result.tsx`),
+      context: {
+        id: result.id,
+        ...result.data,
+      },
+    })
   })
 }

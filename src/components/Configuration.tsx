@@ -1,9 +1,7 @@
 import React from 'react'
 
 export const Layer1 = (props): JSX.Element => {
-  const { data } = props
-  const { chainId, avgBlockGasLimit, nodeInfo } = data
-
+  const { chainId, avgBlockGasLimit, nodeInfo } = props.data
   return (
     <>
       <table>
@@ -33,15 +31,16 @@ export const Layer1 = (props): JSX.Element => {
 }
 
 export const ZkopruConfig = (props): JSX.Element => {
-  const { data } = props
   const {
     maxBlockSize,
     maxValidationGas,
     challengePeriod,
     minimumStake,
     maxUtxoDepth,
-  } = data
-  const minimumStakeEther = minimumStake / 10 ** 18 // to Ether
+  } = props.data
+
+  // Wei to Ether
+  const minimumStakeEther = minimumStake / 10 ** 18
 
   return (
     <>
@@ -79,7 +78,34 @@ export const ZkopruConfig = (props): JSX.Element => {
   )
 }
 
-// export const Coordinator = (props) = {
-//   const {}
+export const Coordinators = (props): JSX.Element => {
+  const { coordinatorConfig } = props.data
 
-// }
+  return (
+    <>
+      <table role="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Max Bytes</th>
+            <th>Price Multiplier</th>
+            <th>Max Bid</th>
+          </tr>
+        </thead>
+        <tbody>
+          {coordinatorConfig &&
+            coordinatorConfig.map((coordinator) => (
+              <tr>
+                <td>coordinator_{coordinator.id}</td>
+                <td>{coordinator.from}</td>
+                <td>{coordinator.maxBytes}</td>
+                <td>{coordinator.priceMultiplier}</td>
+                <td>{coordinator.maxBid}</td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </>
+  )
+}
