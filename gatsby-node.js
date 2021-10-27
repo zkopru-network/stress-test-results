@@ -2,11 +2,12 @@ const fs = require('fs')
 const path = require('path')
 
 // TODO: testresult file should be better uuid
-const resultFiles = fs.readdirSync(`src/content/`)
+const targetDirectory = `src/content`
+const resultFiles = fs.readdirSync(targetDirectory)
 const results = resultFiles.map((file) => {
-  const data = JSON.parse(fs.readFileSync(`src/content/${file}`, `utf8`))
+  const data = JSON.parse(fs.readFileSync(`${targetDirectory}/${file}`, `utf8`))
   const id = file.split(`_`)[1].split(`.`)[0]
-  return { id, filePath: `src/content/${file}`, data }
+  return { id, filePath: `${targetDirectory}/${file}`, data }
 })
 
 exports.createPages = ({ actions }) => {
