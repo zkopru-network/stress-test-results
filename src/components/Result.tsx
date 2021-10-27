@@ -51,13 +51,11 @@ export const Performance = (props): JSX.Element => {
         />
       </div>
       <table role="table">
-        <thead>
-          <tr>
-            <th>Keys</th>
-            <th>Value</th>
-          </tr>
-        </thead>
         <tbody>
+          <tr>
+            <td>Target TPS</td>
+            <td>{props.targetTPS.toFixed(2)} tx/s</td>
+          </tr>
           <tr>
             <td>Average TPS</td>
             <td>{tps.avgTPS.toFixed(2)} tx/s</td>
@@ -71,7 +69,7 @@ export const Performance = (props): JSX.Element => {
             <td>{tps.last24hTPS.toFixed(2)} tx/s</td>
           </tr>
           <tr>
-            <td>Las 1 Hour TPS</td>
+            <td>Last 1 Hour TPS</td>
             <td>{tps.last1hTPS.toFixed(2)} tx/s</td>
           </tr>
         </tbody>
