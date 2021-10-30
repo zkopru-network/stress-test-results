@@ -29,6 +29,7 @@ const PageTemplate = (props) => {
           <Coordinators data={configuration} />
           <h2>Test Result</h2>
           <h3>Performances</h3>
+          <p>Transactions per seconds in Layer2 blocks</p>
           <Performance data={testResult} targetTPS={info.operation.targetTPS} />
           <h3>Coordinators</h3>
           <CoordinatorInfo data={testResult} />

@@ -43,7 +43,7 @@ export const Performance = (props): JSX.Element => {
     <>
       <div style={{ paddingBottom: 10 }}>
         <StatChart
-          title="Transaction Per Seconds"
+          title="TPS"
           data={tpsData}
           yKey="tps"
           yMax={props.targetTPS}

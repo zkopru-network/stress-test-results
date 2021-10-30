@@ -41,7 +41,7 @@ const OperationInfo = (props): JSX.Element => {
   }
 
   // SystemInformation - convert from 'bytes' to 'Gb'
-  const parsedMemory = Math.floor(memory.total / (1000 * 1000))
+  const parsedMemory = Math.floor(memory.total / (1000**3))
 
   return (
     <>
