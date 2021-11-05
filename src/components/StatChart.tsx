@@ -19,7 +19,10 @@ const StatChart = ({ title, data, yKey, color, yMax }) => (
     <h3>{title}</h3>
     <ResponsiveContainer width="100%" height={400}>
       <LineChart data={data} margin={{ top: 15 }}>
-        <Tooltip labelFormatter={(time) => dayjs(time).format(`llll`)} />
+        <Tooltip
+          formatter={(value) => `${value.toFixed(5)}`}
+          labelFormatter={(time) => dayjs(time).format(`llll`)}
+        />
         <Legend />
         <Line
           type="monotone"
@@ -30,7 +33,7 @@ const StatChart = ({ title, data, yKey, color, yMax }) => (
           isAnimationActive={false}
         />
         <XAxis
-          dataKey="timestamp"
+          dataKey="proposedTime"
           tickFormatter={(time) => dayjs(time).format(`YYYY-MM-DD`)}
           minTickGap={20}
           padding={{ left: 10, right: 10 }}

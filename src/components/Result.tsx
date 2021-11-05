@@ -5,7 +5,7 @@ import StatChart from './StatChart'
 const GREEN = `rgb(40, 167, 69)`
 
 export const Performance = (props): JSX.Element => {
-  const { performance, recentProposedBlocks, coordinatorInfo } = props.data
+  const { tpsData, performance, coordinatorInfo } = props.data
   const { firstProposeTime, lastProposeTime, txCount } = performance
 
   // TODO: use data from 'tps-data' endpoint.
@@ -28,25 +28,12 @@ export const Performance = (props): JSX.Element => {
 
   const feePerTx = coordinatorEarnedFee.div(new BN(txCount.total))
 
-  // generate data for TPS chart
-  let previousTimestamp = 0
-  const tpsData = recentProposedBlocks
-    .filter((block) => block)
-    .sort((a, b) => a.timestamp - b.timestamp)
-    .map((propose) => {
-      const timeDiff = propose.timestamp - previousTimestamp
-      const calcTPS = propose.txcount / Math.floor(timeDiff / 1000)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      previousTimestamp = propose.timestamp
-      return { timestamp: propose.timestamp, tps: calcTPS }
-    })
-
   return (
     <>
       <div style={{ paddingBottom: 10 }}>
         <StatChart
           title="TPS"
-          data={tpsData.slice(1, -1)}
+          data={tpsData}
           yKey="tps"
           yMax={props.targetTPS}
           color={GREEN}
@@ -177,6 +164,7 @@ export const Layer1Blocks = (props): JSX.Element => {
           ))}
         </tbody>
       </table>
+      <p className="last"> Only show last 10 data</p>
       <ul>
         <li>
           Zkopru Related Txs : Transactions from stress-test participant,
@@ -222,6 +210,7 @@ export const ZkopruBlocks = (props): JSX.Element => {
         <tbody>
           {processedBlockData
             .filter((data) => data)
+            .slice(0, 10)
             .map((block) => (
               <tr>
                 <td>{block.proposeNum}</td>
@@ -233,6 +222,7 @@ export const ZkopruBlocks = (props): JSX.Element => {
             ))}
         </tbody>
       </table>
+      <p className="last"> Only show last 10 data</p>
     </>
   )
 }
@@ -268,13 +258,12 @@ export const AuctionData = (props): JSX.Element => {
           })}
         </tbody>
       </table>
-      <div style={{ paddingLeft: 20 }}>
-        {/* <p style={{ textAlign: `rightp` }}> More </p> */}
-        <p>
-          - Round Start At : Each round has starting point(block number) on
-          layer1
-        </p>
-      </div>
+      <p className="last"> Only show last 10 data</p>
+      <ul>
+        <li>
+          Round Start At : Each round has starting point(block number) on layer1
+        </li>
+      </ul>
     </>
   )
 }
