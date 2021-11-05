@@ -63,13 +63,6 @@ const Home = (props) => {
                   const { branch, commit } = git[`stress-test`]
                   const { startTime, endTime } = operation
 
-                  /** TODO: create util, generating 'duration' string logic
-                   * Starting time must exist,
-                   * endTime not exist and less 24 hours seems failed
-                   * endtime not exist and over 24 hours Seems failed
-                   * endtime exist finished
-                   */
-
                   let testingDuation
                   let status = `Details`
 
