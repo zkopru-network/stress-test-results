@@ -8,6 +8,8 @@ export const Performance = (props): JSX.Element => {
   const { performance, recentProposedBlocks, coordinatorInfo } = props.data
   const { firstProposeTime, lastProposeTime, txCount } = performance
 
+  // TODO: use data from 'tps-data' endpoint.
+
   const diffTime = lastProposeTime - firstProposeTime
 
   const tps = {
@@ -44,7 +46,7 @@ export const Performance = (props): JSX.Element => {
       <div style={{ paddingBottom: 10 }}>
         <StatChart
           title="TPS"
-          data={tpsData}
+          data={tpsData.slice(1, -1)}
           yKey="tps"
           yMax={props.targetTPS}
           color={GREEN}
@@ -165,7 +167,7 @@ export const Layer1Blocks = (props): JSX.Element => {
           </tr>
         </thead>
         <tbody>
-          {recentTxData.map((txData) => (
+          {recentTxData.slice(0, 10).map((txData) => (
             <tr>
               <td>{txData.blockNumber}</td>
               <td>{txData.transactions.length}</td>
@@ -188,6 +190,23 @@ export const Layer1Blocks = (props): JSX.Element => {
 export const ZkopruBlocks = (props): JSX.Element => {
   const { recentProposedBlocks, coordinatorInfo } = props.data
 
+  let prevTimestamp = 0
+  const processedBlockData = []
+  // eslint-disable-next-line no-restricted-syntax
+  for (const block of recentProposedBlocks.sort(
+    (a, b) => a.timestamp - b.timestamp,
+  )) {
+    let duration = 0
+    if (prevTimestamp !== 0) {
+      duration = block.timestamp - prevTimestamp
+    }
+    prevTimestamp = block.timestamp
+    processedBlockData.unshift({
+      ...block,
+      duration: `${(duration / 1000).toFixed(1)}s`,
+    })
+  }
+
   return (
     <>
       <table role="table">
@@ -196,17 +215,17 @@ export const ZkopruBlocks = (props): JSX.Element => {
             <th>Propose Number</th>
             <th>Duration</th>
             <th>ZkTx Count</th>
-            <th>Layer1 Tx Hash</th>
+            <th>Proposal Tx Hash</th>
             <th>Proposer</th>
           </tr>
         </thead>
         <tbody>
-          {recentProposedBlocks
-            .filter((data) => data) // TODO: remove check null after organizer API check
+          {processedBlockData
+            .filter((data) => data)
             .map((block) => (
               <tr>
                 <td>{block.proposeNum}</td>
-                <td>{block.timestamp}</td>
+                <td>{block.duration}</td>
                 <td>{block.txcount}</td>
                 <td>{block.layer1TxHash}</td>
                 <td>{coordinatorInfo[block.from].name}</td>
@@ -223,7 +242,7 @@ export const AuctionData = (props): JSX.Element => {
 
   return (
     <>
-      <table role="table">
+      <table style={{ marginTop: 0 }} role="table">
         <thead>
           <tr>
             <th>Round Number</th>
@@ -234,7 +253,7 @@ export const AuctionData = (props): JSX.Element => {
           </tr>
         </thead>
         <tbody>
-          {recentAuctionData.map((data) => {
+          {recentAuctionData.slice(0, 10).map((data) => {
             const { bidder, bidAmount, startBlock } = data.highestBid
 
             return (
@@ -249,9 +268,13 @@ export const AuctionData = (props): JSX.Element => {
           })}
         </tbody>
       </table>
-      <p>
-        - Round Start At : Each round has starting point(block number) on layer1
-      </p>
+      <div style={{ paddingLeft: 20 }}>
+        {/* <p style={{ textAlign: `rightp` }}> More </p> */}
+        <p>
+          - Round Start At : Each round has starting point(block number) on
+          layer1
+        </p>
+      </div>
     </>
   )
 }
