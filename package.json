@@ -18,7 +18,8 @@
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
@@ -62,6 +63,7 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "gatsby-plugin-react-helmet": "^5.0.0",
     "gatsby-plugin-root-import": "^2.0.7",
+    "gh-pages": "^3.2.3",
     "husky": "7.0.2",
     "prettier": "2.3.2",
     "typescript": "4.3.5"
