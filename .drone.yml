@@ -1,0 +1,47 @@
+kind: pipeline
+type: docker
+name: default
+
+concurrency:
+  limit: 1
+
+clone:
+  disable: true
+
+steps:
+- name: fetch 
+  pull: never
+  image: zkopru/git
+  commands:
+  - git clone -b ${DRONE_BRANCH} git@github.com:${DRONE_REPO}
+  - cd ${DRONE_REPO_NAME}
+  - yarn
+
+- name: build-test
+  pull: never
+  image: zkopru/git
+  commands:
+    - cd ${DRONE_REPO_NAME}
+    - yarn build
+
+- name: merge-result
+  pull: never
+  image: zkopru/git
+  commands:
+    - cd ${DRONE_REPO_NAME}
+    - git checkout -b main --track origin/main
+    - git merge ${DRONE_BRANCH}
+
+- name: publish
+  pull: never
+  image: zkopru/git
+  commands:
+    - cd ${DRONE_REPO_NAME}
+    - yarn deploy
+
+trigger:
+  branch:
+    include:
+      - result/*
+  event:
+    - push
