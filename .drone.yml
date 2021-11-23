@@ -10,31 +10,31 @@ clone:
 
 steps:
 - name: fetch 
-  pull: never
-  image: zkopru/git
+  image: aloine/git
   commands:
     - git clone -b ${DRONE_BRANCH} git@github.com:${DRONE_REPO}
-    - cd ${DRONE_REPO_NAME}
 
-- name: build-test
-  image: node:16-stretch-slim
+- name: build
+  image: node:16-alpine
   commands:
     - cd ${DRONE_REPO_NAME}
-    - yarn && yarn build
+    - yarn && npx gatsby build --prefix-paths
 
-- name: merge-result
+- name: publish
   pull: never
-  image: zkopru/git
+  image: stress-test/publisher
+  commands:
+    - cd ${DRONE_REPO_NAME}
+    - npx gh-pages -d public
+
+- name: push-main
+  pull: never
+  image: stress-test/publisher
   commands:
     - cd ${DRONE_REPO_NAME}
     - git checkout -b main --track origin/main
     - git merge ${DRONE_BRANCH}
-
-- name: publish
-  image: node:16-stretch-slim
-  commands:
-    - cd ${DRONE_REPO_NAME}
-    - yarn deploy
+    - git push origin main
 
 trigger:
   branch:
