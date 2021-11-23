@@ -15,14 +15,12 @@ steps:
   commands:
     - git clone -b ${DRONE_BRANCH} git@github.com:${DRONE_REPO}
     - cd ${DRONE_REPO_NAME}
-    - yarn
 
 - name: build-test
-  pull: never
-  image: zkopru/git
+  image: node:16-stretch-slim
   commands:
     - cd ${DRONE_REPO_NAME}
-    - yarn build
+    - yarn && yarn build
 
 - name: merge-result
   pull: never
@@ -33,8 +31,7 @@ steps:
     - git merge ${DRONE_BRANCH}
 
 - name: publish
-  pull: never
-  image: zkopru/git
+  image: node:16-stretch-slim
   commands:
     - cd ${DRONE_REPO_NAME}
     - yarn deploy
