@@ -10,7 +10,7 @@ clone:
 
 steps:
 - name: fetch 
-  image: alpine/git
+  image: zkopru/git
   commands:
     - git clone -b ${DRONE_BRANCH} git@github.com:${DRONE_REPO}
 
